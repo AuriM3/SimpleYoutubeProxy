@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (string.IsNullOrWhiteSpace((string)ViewData["VideoId"]) || ((string)ViewData["VideoId"]).Length > 20)
+{
+    <p>Not found. Did you pass a video ID?</p>
+}
+else
+{
+    <div class="video-container">
+        <iframe
+            src="https://www.youtube.com/embed/@ViewData["VideoId"];controls=0"
+            allowfullscreen="allowfullscreen"
+            frameborder="0"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+    </div>
+}
